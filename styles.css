@@ -1,0 +1,241 @@
+/* Estilos gerais */
+body {
+  font-family: 'Inter', sans-serif;
+  transition: opacity 0.5s ease;
+}
+
+/* Estilos para o splash screen */
+#splashScreen {
+  transition: opacity 0.5s ease;
+}
+
+/* Estilos para o modal de autenticação */
+.user-type-btn.active {
+  background-color: #f0fdf4;
+  border-color: #22c55e;
+  color: #16a34a;
+}
+
+/* Estilos para o carrossel */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffffff;
+}
+
+/* Animações */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Estilos para os cards de menu */
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.menu-card {
+  transition: all 0.3s ease;
+}
+
+/* Estilos para os botões */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Estilos para inputs */
+.input-field:focus {
+  border-color: transparent;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .swiper-slide h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Efeito de hover nos itens do menu */
+.menu-item:hover img {
+  transform: scale(1.05);
+}
+
+.menu-item img {
+  transition: transform 0.3s ease;
+}
+
+/* Estilo para o badge de preço */
+.price-badge {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Estilo para o contador de calorias */
+.calorie-counter {
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.calorie-counter i {
+  color: #f97316;
+  margin-right: 0.25rem;
+}
+
+/* Estilos para o menu inferior mobile */
+@media (max-width: 768px) {
+  .mobile-bottom-menu {
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-bottom-menu button, 
+  .mobile-bottom-menu a {
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-bottom-menu button:active, 
+  .mobile-bottom-menu a:active {
+    transform: scale(0.95);
+  }
+  
+  /* Ajuste para o footer em dispositivos móveis */
+  footer {
+    padding-bottom: 5rem;
+  }
+}
+
+/* Estilos para o modal de destaques */
+#highlightsModal .highlight-item {
+  transition: all 0.2s ease;
+}
+
+#highlightsModal .highlight-item:hover {
+  background-color: #f9fafb;
+}
+
+/* Animação para o modal de destaques */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#highlightsModal > div:last-child {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Estilos para a tela de boas-vindas */
+#welcomeScreen {
+  transition: opacity 0.5s ease;
+}
+
+#welcomeScreen.opacity-0 {
+  opacity: 0;
+}
+
+#welcomeScreen .bg-white {
+  transform: translateY(0);
+  transition: transform 0.5s ease;
+}
+
+#welcomeScreen.opacity-0 .bg-white {
+  transform: translateY(30px);
+}
+
+#closeWelcomeScreen {
+  transition: background-color 0.2s ease;
+}
+
+#exploreMenuBtn {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#exploreMenuBtn:hover {
+  transform: translateY(-2px);
+}
+
+#exploreMenuBtn:active {
+  transform: translateY(0);
+}
+
+/* Estilos para o modal de pesquisa */
+#searchModal {
+  transition: opacity 0.3s ease;
+}
+
+#searchModal.hidden {
+  display: none;
+}
+
+#searchResultsDesktop, #searchResultsMobile {
+  scrollbar-width: thin;
+  scrollbar-color: #327639 #f3f4f6;
+}
+
+#searchResultsDesktop::-webkit-scrollbar, 
+#searchResultsMobile::-webkit-scrollbar {
+  width: 8px;
+}
+
+#searchResultsDesktop::-webkit-scrollbar-track, 
+#searchResultsMobile::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+#searchResultsDesktop::-webkit-scrollbar-thumb, 
+#searchResultsMobile::-webkit-scrollbar-thumb {
+  background-color: #327639;
+  border-radius: 10px;
+}
+
+/* Animação para os resultados da pesquisa */
+#searchResultsDesktop > div, 
+#searchResultsMobile > div {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

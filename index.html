@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitDelicias - Restaurante de Alimentação Saudável</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="font-sans bg-gray-50 opacity-0 transition-opacity duration-500">
+
+<!-- Tela de Boas-vindas -->
+<div id="welcomeScreen" class="fixed inset-0 flex items-center justify-center z-[101] bg-black/50 backdrop-blur-sm">
+  <div class="relative w-full max-w-2xl mx-auto p-4">
+    <button id="closeWelcomeScreen" class="absolute top-2 right-2 bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md z-10">
+      <i class="fas fa-times text-gray-600"></i>
+    </button>
+    
+    <div class="bg-white rounded-xl overflow-hidden shadow-2xl">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+             alt="Comida saudável" class="w-full h-64 object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <h2 class="text-white text-3xl font-bold p-6">Bem-vindo ao FitDelicias</h2>
+        </div>
+      </div>
+      
+      <div class="p-6">
+        <p class="text-gray-700 mb-4">
+          Descubra o prazer de uma alimentação saudável e saborosa. No FitDelicias, preparamos refeições nutritivas 
+          que vão te ajudar a manter um estilo de vida equilibrado sem abrir mão do sabor.
+        </p>
+        
+        <div class="flex flex-wrap gap-3 mb-4">
+          <div class="bg-green-50 px-3 py-1 rounded-full text-green-700 text-sm font-medium flex items-center">
+            <i class="fas fa-check-circle mr-1"></i> Ingredientes frescos
+          </div>
+          <div class="bg-green-50 px-3 py-1 rounded-full text-green-700 text-sm font-medium flex items-center">
+            <i class="fas fa-check-circle mr-1"></i> Opções low carb
+          </div>
+          <div class="bg-green-50 px-3 py-1 rounded-full text-green-700 text-sm font-medium flex items-center">
+            <i class="fas fa-check-circle mr-1"></i> Sem conservantes
+          </div>
+        </div>
+        
+        <div class="flex justify-center">
+          <button id="exploreMenuBtn" class="bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors font-medium">
+            Explorar Cardápio
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Header/Navbar -->
+<header class="bg-[#327639] shadow-md fixed top-0 left-0 right-0 z-50">
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <!-- Logo -->
+        <img src="FTS/logonovo.png" alt="Logo FitDelicias" class="h-10 mr-2">
+        <h1 class="text-xl font-bold text-white">FitDelicias</h1>
+      </div>
+      
+      <!-- Barra de pesquisa -->
+      <div class="hidden md:block flex-grow mx-10 max-w-xl">
+        <div class="relative">
+          <input type="text" placeholder="Buscar pratos, categorias, ingredientes..." 
+                class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#327639] focus:border-transparent">
+          <button class="absolute right-3 top-2.5 text-gray-400">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+</header>
+
+
+  <!-- Espaço para o header fixo -->
+  <div class="pt-16"></div>
+
+  <!-- Hero Section com Carrossel (mantido conforme solicitado) -->
+  <div class="w-full h-64 md:h-80 relative overflow-hidden">
+    <div class="swiper-container h-full">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-900/70 to-green-600/40 z-10"></div>
+          <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Comida Saudável" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center z-20">
+            <div class="container mx-auto px-6 md:px-12">
+              <div class="w-full md:w-2/3 lg:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Alimentação Saudável e Saborosa</h2>
+                <p class="text-lg text-green-100">Refeições preparadas com ingredientes frescos e orgânicos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="swiper-slide relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-yellow-900/70 to-yellow-600/40 z-10"></div>
+          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Pratos Fitness" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center z-20">
+            <div class="container mx-auto px-6 md:px-12">
+              <div class="w-full md:w-2/3 lg:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Pratos Balanceados</h2>
+                <p class="text-lg text-yellow-100">Nutrição ideal para quem busca saúde e boa forma.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="swiper-slide relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-red-900/70 to-red-600/40 z-10"></div>
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Delivery Saudável" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center z-20">
+            <div class="container mx-auto px-6 md:px-12">
+              <div class="w-full md:w-2/3 lg:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Delivery Rápido</h2>
+                <p class="text-lg text-red-100">Sua refeição saudável entregue onde você estiver.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- Menu 1: Café da Manhã Fit -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800">Café da Manhã Fit</h2>
+        <p class="text-gray-600 mt-2">Comece o dia com energia e nutrientes essenciais</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Item 1 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1494597564530-871f2b93ac55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Avocado Toast" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Avocado Toast</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 24,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Torrada integral com abacate amassado, ovo pochê e sementes de chia.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">320 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1504310578167-435ac09e69f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smoothie Bowl" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Smoothie Bowl</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 28,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Base de açaí, banana e morango, coberto com granola, coco ralado e frutas frescas.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">380 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Omelete Proteico" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Omelete Proteico</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 26,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Omelete com claras, peito de peru, espinafre, tomate e queijo cottage.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">290 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Panquecas Proteicas" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Panquecas Proteicas</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 25,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Panquecas de aveia e banana com whey protein, servidas com mel e frutas vermelhas.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">340 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1615937722923-67f6deaf2cc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Iogurte Grego" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Iogurte Grego</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 22,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Iogurte grego natural com granola low carb, mel e mix de frutas frescas.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">280 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu 2: Almoço e Jantar Fit -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800">Almoço e Jantar Fit</h2>
+        <p class="text-gray-600 mt-2">Refeições completas e balanceadas para seu dia</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Item 1 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bowl de Proteína" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Bowl de Proteína</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 36,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Frango grelhado, quinoa, abacate, brócolis, grão-de-bico e molho de iogurte.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">420 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salmão Grelhado" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Salmão Grelhado</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 45,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Filé de salmão grelhado com legumes no vapor e purê de batata-doce.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">460 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wrap de Frango" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Wrap de Frango</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 32,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Wrap integral com frango desfiado, homus, alface, tomate e cenoura ralada.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">380 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salada Completa" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Salada Completa</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 34,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Mix de folhas, atum, ovo cozido, tomate cereja, pepino, cebola roxa e molho de mostarda e mel.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">320 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Risoto de Quinoa" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Risoto de Quinoa</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 38,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Risoto de quinoa com cogumelos, aspargos, ervilhas e queijo parmesão ralado.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">410 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu 3: Bebidas e Sobremesas Fit -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800">Bebidas e Sobremesas Fit</h2>
+        <p class="text-gray-600 mt-2">Opções saudáveis para complementar sua refeição</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Item 1 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1622597467836-f3e6047cc116?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Suco Verde" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Suco Verde</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 18,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Couve, maçã verde, pepino, gengibre, limão e hortelã.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">120 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1589734435872-4c886fea9c0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smoothie Proteico" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Smoothie Proteico</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 22,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Banana, morango, whey protein, leite de amêndoas e pasta de amendoim.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">280 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1551198297-094dd136d3a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mousse de Chocolate" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Mousse de Chocolate</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 19,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Mousse de chocolate feito com abacate, cacau 70% e adoçante natural.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">220 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1575596510825-f748919a2bf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kombucha" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Kombucha</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 16,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Bebida fermentada probiótica com sabores de frutas vermelhas ou gengibre com limão.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">60 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1514995428455-447d4443fa7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pudim de Chia" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-lg text-gray-800">Pudim de Chia</h3>
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">R$ 17,90</span>
+            </div>
+            <p class="text-gray-600 mb-4">Pudim de chia com leite de coco, baunilha, mel e frutas vermelhas.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <i class="fas fa-fire text-orange-500 mr-1"></i>
+                <span class="text-sm text-gray-600">190 kcal</span>
+              </div>
+              <button class="bg-green-600 text-white py-1 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Splash Screen / Logo Intro -->
+<div id="splashScreen" class="fixed inset-0 bg-white flex items-center justify-center z-[100]">
+  <div class="text-center">
+    <!-- Substituir o ícone Font Awesome pela imagem do logo -->
+    <img src="FTS/logonovo.png" alt="Logo FitDelicias" class="h-24 mx-auto mb-4 animate-pulse">
+    
+    <h1 class="text-3xl font-bold text-gray-800">FitDelicias</h1>
+    <p class="text-gray-600 mt-2">Alimentação saudável e saborosa</p>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+<footer class="bg-[#327639] text-white py-10">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Coluna 1 - Logo e Sobre -->
+      <div>
+        <div class="flex items-center mb-4">
+          <img src="FTS/logonovo.png" alt="Logo FitDelicias" class="h-8 mr-2">
+          <h3 class="text-xl font-bold">FitDelicias</h3>
+        </div>
+        <p class="text-green-100 mb-4">
+          Refeições saudáveis e saborosas para seu dia a dia, preparadas com ingredientes frescos e de alta qualidade.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-green-200 hover:text-white transition-colors">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-green-200 hover:text-white transition-colors">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-green-200 hover:text-white transition-colors">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-green-200 hover:text-white transition-colors">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Coluna 2 - Links Rápidos -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-green-100 hover:text-white transition-colors">Início</a></li>
+          <li><a href="#" class="text-green-100 hover:text-white transition-colors">Cardápio</a></li>
+          <li><a href="#" class="text-green-100 hover:text-white transition-colors">Planos</a></li>
+          <li><a href="#" class="text-green-100 hover:text-white transition-colors">Sobre Nós</a></li>
+          <li><a href="#" class="text-green-100 hover:text-white transition-colors">Contato</a></li>
+        </ul>
+      </div>
+      
+      <!-- Coluna 3 - Contato -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contato</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start">
+            <i class="fas fa-map-marker-alt text-green-200 mt-1 mr-2"></i>
+            <span class="text-green-100">Salvador/BA</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-phone text-green-200 mt-1 mr-2"></i>
+            <span class="text-green-100">(71) 0000-0000</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-envelope text-green-200 mt-1 mr-2"></i>
+            <span class="text-green-100">contato@FitDelicias.com</span>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-green-700 mt-8 pt-8 text-center text-green-100">
+      <p>© 2025 FitDelicias</p>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Container dinâmico oculto -->
+  <div id="appContainer" class="hidden"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    // Inicialização do Swiper
+    document.addEventListener('DOMContentLoaded', function() {
+      // Splash screen
+      setTimeout(() => {
+        document.getElementById('splashScreen').style.opacity = '0';
+        document.getElementById('splashScreen').style.transition = 'opacity 0.5s ease';
+        setTimeout(() => {
+          document.getElementById('splashScreen').style.display = 'none';
+          document.body.style.opacity = '1';
+        }, 500);
+      }, 1500);
+
+      // Inicialização do carrossel
+      new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+
+      // Modal de autenticação
+      const authModal = document.getElementById('authModal');
+      const loginHeaderBtn = document.getElementById('loginHeaderBtn');
+      const registerHeaderBtn = document.getElementById('registerHeaderBtn');
+      const closeModal = document.getElementById('closeModal');
+      const loginTab = document.getElementById('loginTab');
+      const registerTab = document.getElementById('registerTab');
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const userTypeBtns = document.querySelectorAll('.user-type-btn');
+      const togglePasswordBtns = document.querySelectorAll('.toggle-password, #togglePassword');
+
+      // Abrir modal
+      loginHeaderBtn.addEventListener('click', () => {
+        authModal.classList.remove('hidden');
+        loginTab.click();
+      });
+
+      registerHeaderBtn.addEventListener('click', () => {
+        authModal.classList.remove('hidden');
+        registerTab.click();
+      });
+
+      // Fechar modal
+      closeModal.addEventListener('click', () => {
+        authModal.classList.add('hidden');
+      });
+
+      // Alternar entre abas
+      loginTab.addEventListener('click', () => {
+        loginTab.classList.add('text-green-600', 'border-green-600');
+        loginTab.classList.remove('text-gray-500');
+        registerTab.classList.remove('text-green-600', 'border-green-600');
+        registerTab.classList.add('text-gray-500');
+        registerTab.classList.remove('border-b-2');
+        loginTab.classList.add('border-b-2');
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+      });
+
+      registerTab.addEventListener('click', () => {
+        registerTab.classList.add('text-green-600', 'border-green-600', 'border-b-2');
+        registerTab.classList.remove('text-gray-500');
+        loginTab.classList.remove('text-green-600', 'border-green-600');
+        loginTab.classList.add('text-gray-500');
+        loginTab.classList.remove('border-b-2');
+        registerForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+      });
+
+      // Alternar tipo de usuário
+      userTypeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          userTypeBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('loginRole').value = btn.dataset.role;
+        });
+      });
+
+      // Mostrar/ocultar senha
+      togglePasswordBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const input = btn.parentElement.querySelector('input');
+          if (input.type === 'password') {
+            input.type = 'text';
+            btn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+          } else {
+            input.type = 'password';
+            btn.innerHTML = '<i class="fas fa-eye"></i>';
+          }
+        });
+      });
+
+      // Login de demonstração
+      const demoButtons = document.querySelectorAll('.demo-login');
+      demoButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const email = button.dataset.email;
+          const password = button.dataset.password;
+          const role = button.dataset.role;
+          
+          document.getElementById('loginEmail').value = email;
+          document.getElementById('loginPassword').value = password;
+          document.getElementById('loginRole').value = role;
+          
+          // Atualizar botões de tipo de usuário
+          userTypeBtns.forEach(btn => {
+            if (btn.dataset.role === role) {
+              btn.classList.add('active');
+            } else {
+              btn.classList.remove('active');
+            }
+          });
+        });
+      });
+    });
+  </script>
+<!-- Menu Inferior Mobile -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-[#327639] shadow-lg z-40 border-t border-green-700">
+  <div class="flex justify-around items-center py-2">
+    <a href="https://wa.me/5571000000000" class="flex flex-col items-center px-3 py-1">
+      <i class="fab fa-whatsapp text-white text-xl"></i>
+      <span class="text-xs mt-1 text-white">WhatsApp</span>
+    </a>
+    <button id="searchMobileBtn" class="flex flex-col items-center px-3 py-1">
+      <i class="fas fa-search text-white text-xl"></i>
+      <span class="text-xs mt-1 text-white">Buscar</span>
+    </button>
+    <a href="https://www.ifood.com.br/delivery/seu-restaurante" target="_blank" class="flex flex-col items-center px-3 py-1">
+      <i class="fas fa-motorcycle text-white text-xl"></i>
+      <span class="text-xs mt-1 text-white">iFood</span>
+    </a>
+    <button id="highlightsMobileBtn" class="flex flex-col items-center px-3 py-1">
+      <i class="fas fa-star text-white text-xl"></i>
+      <span class="text-xs mt-1 text-white">Destaques</span>
+    </button>
+  </div>
+</div>
+
+
+
+<!-- Modal de Pesquisa Mobile -->
+<div id="searchModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[102] hidden">
+  <div class="bg-white w-full max-w-md mx-auto mt-20 rounded-lg overflow-hidden shadow-xl">
+    <div class="p-4 bg-[#327639] text-white flex justify-between items-center">
+      <h3 class="text-lg font-medium">Buscar</h3>
+      <button id="closeSearchModal" class="text-white">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="p-4">
+      <div class="relative mb-4">
+        <input type="text" id="searchInputMobile" placeholder="Buscar pratos, categorias, ingredientes..." 
+               class="w-full py-3 px-4 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#327639] focus:border-transparent">
+        <button id="searchButtonMobile" class="absolute right-3 top-3 text-[#327639]">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      
+      <div id="searchResultsMobile" class="mt-4 max-h-80 overflow-y-auto">
+        <!-- Resultados da pesquisa serão inseridos aqui via JavaScript -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de Destaques do Dia -->
+<div id="highlightsModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+  
+  <div class="bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-md z-10 relative mx-4">
+    <div class="bg-yellow-500 py-4 px-6 text-white text-center relative">
+      <button id="closeHighlightsModal" class="absolute top-4 right-4 text-white hover:text-gray-200">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <i class="fas fa-star text-2xl mb-1"></i>
+      <h2 class="text-xl font-bold">Destaques do Dia</h2>
+      <p class="text-yellow-100 text-sm">Pratos especiais selecionados para hoje</p>
+    </div>
+
+    <div class="p-4">
+      <!-- Destaque 1 -->
+      <div class="flex border-b border-gray-200 pb-4 mb-4">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bowl de Proteína" class="w-24 h-24 object-cover rounded-lg">
+        <div class="ml-4 flex-1">
+          <div class="flex justify-between items-start">
+            <h3 class="font-bold text-gray-800">Bowl de Proteína</h3>
+            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">-15% hoje</span>
+          </div>
+          <p class="text-sm text-gray-600 mt-1 mb-2">Frango grelhado, quinoa, abacate, brócolis e grão-de-bico.</p>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <span class="text-gray-400 text-sm line-through mr-1">R$ 36,90</span>
+              <span class="text-green-600 font-bold">R$ 31,36</span>
+            </div>
+            <button class="bg-green-600 text-white py-1 px-3 rounded-lg text-sm hover:bg-green-700 transition-colors">
+              Pedir
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destaque 2 -->
+      <div class="flex border-b border-gray-200 pb-4 mb-4">
+        <img src="https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Panquecas Proteicas" class="w-24 h-24 object-cover rounded-lg">
+        <div class="ml-4 flex-1">
+          <div class="flex justify-between items-start">
+            <h3 class="font-bold text-gray-800">Panquecas Proteicas</h3>
+            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">-20% hoje</span>
+          </div>
+          <p class="text-sm text-gray-600 mt-1 mb-2">Panquecas de aveia e banana com whey protein e frutas vermelhas.</p>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <span class="text-gray-400 text-sm line-through mr-1">R$ 25,90</span>
+              <span class="text-green-600 font-bold">R$ 20,72</span>
+            </div>
+            <button class="bg-green-600 text-white py-1 px-3 rounded-lg text-sm hover:bg-green-700 transition-colors">
+              Pedir
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destaque 3 -->
+      <div class="flex">
+        <img src="https://images.unsplash.com/photo-1622597467836-f3e6047cc116?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Suco Verde" class="w-24 h-24 object-cover rounded-lg">
+        <div class="ml-4 flex-1">
+          <div class="flex justify-between items-start">
+            <h3 class="font-bold text-gray-800">Suco Verde</h3>
+            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">-10% hoje</span>
+          </div>
+          <p class="text-sm text-gray-600 mt-1 mb-2">Couve, maçã verde, pepino, gengibre, limão e hortelã.</p>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <span class="text-gray-400 text-sm line-through mr-1">R$ 18,90</span>
+              <span class="text-green-600 font-bold">R$ 17,01</span>
+            </div>
+            <button class="bg-green-600 text-white py-1 px-3 rounded-lg text-sm hover:bg-green-700 transition-colors">
+              Pedir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 py-3 px-4 text-center">
+      <button class="text-green-600 font-medium text-sm hover:text-green-800">
+        Ver todos os destaques <i class="fas fa-chevron-right ml-1 text-xs"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Espaço para o menu inferior mobile -->
+<div class="md:hidden h-16"></div>
+
+<!-- Script específico para a tela de boas-vindas -->
+<script>
+  // Função para fechar a tela de boas-vindas
+  function closeWelcomeScreen() {
+    const welcomeScreen = document.getElementById('welcomeScreen');
+    if (welcomeScreen) {
+      welcomeScreen.style.display = 'none';
+    }
+  }
+
+  // Adicionar eventos assim que o DOM estiver pronto
+  document.addEventListener('DOMContentLoaded', function() {
+    // Botão de fechar
+    const closeBtn = document.getElementById('closeWelcomeScreen');
+    if (closeBtn) {
+      closeBtn.onclick = closeWelcomeScreen;
+    }
+
+    // Botão de explorar cardápio
+    const exploreBtn = document.getElementById('exploreMenuBtn');
+    if (exploreBtn) {
+      exploreBtn.onclick = function() {
+        closeWelcomeScreen();
+        // Opcional: rolar até a seção do cardápio
+        const menuSection = document.querySelector('#breakfast-menu, #lunch-menu, #dessert-menu');
+        if (menuSection) {
+          menuSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+    }
+
+    // Fechar ao clicar fora do card
+    const welcomeScreen = document.getElementById('welcomeScreen');
+    if (welcomeScreen) {
+      welcomeScreen.addEventListener('click', function(e) {
+        if (e.target === welcomeScreen) {
+          closeWelcomeScreen();
+        }
+      });
+    }
+  });
+</script>
+<!-- Adicione este script antes do fechamento da tag </body> -->
+<script>
+  // Script específico para o botão de destaques
+  document.addEventListener('DOMContentLoaded', function() {
+    // Configurar botão de destaques
+    const highlightsBtn = document.getElementById('highlightsMobileBtn');
+    const highlightsModal = document.getElementById('highlightsModal');
+    
+    if (highlightsBtn && highlightsModal) {
+      // Usar onclick diretamente
+      highlightsBtn.onclick = function() {
+        highlightsModal.style.display = 'flex';
+      };
+      
+      // Configurar botão de fechar
+      const closeHighlightsBtn = document.getElementById('closeHighlightsModal');
+      if (closeHighlightsBtn) {
+        closeHighlightsBtn.onclick = function() {
+          highlightsModal.style.display = 'none';
+        };
+      }
+      
+      // Fechar ao clicar fora do modal
+      highlightsModal.onclick = function(e) {
+        if (e.target === highlightsModal) {
+          highlightsModal.style.display = 'none';
+        }
+      };
+    }
+  });
+</script>
+
+
+</body>
+</html>
